@@ -12,15 +12,13 @@ module.exports = function(id) {
     if (!user) throw new NotFoundError(`user with id ${id} not found`)
 
     const columns = await Column
-        .find({ user: ObjectId(id) }, { __v: 0 })
-debugger
-    if(columns.length === 0) {
+      .find({ user: ObjectId(id) }, { __v: 0 })
+
+    if (columns.length === 0) {
       await Column.create({ user: ObjectId(id), status: 'TODO' })
       await Column.create({ user: ObjectId(id), status: 'DOING' })
       await Column.create({ user: ObjectId(id), status: 'REVIEW' })
       await Column.create({ user: ObjectId(id), status: 'DONE' })
     }
-
-
   })()
 }

@@ -19,6 +19,7 @@ module.exports = function(id, status, title) {
     const task = await Task.create({ user: id, status, title })
 
     await Column.updateOne({ user: ObjectId(id), status}, { $push: { tasks: task.id }})
-    return task.id
+
+    return task
   })()
 }

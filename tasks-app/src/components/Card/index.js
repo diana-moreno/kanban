@@ -12,7 +12,6 @@ export default function({ title, modifier, index, id }) {
         >
           <h3 className={`task__title task__title--${modifier}`}>{title}</h3>
         </li>
-
       )}
     </Draggable>
   </>
