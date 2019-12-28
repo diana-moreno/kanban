@@ -4,6 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "react": "^16.12.0",
     "react-beautiful-dnd": "^12.2.0",
     "react-dom": "^16.12.0",
@@ -13,6 +14,7 @@
     "tasks-util": "file:../tasks-util"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "jsonwebtoken": "^8.5.1",
     "node-sass": "^4.13.0",
     "tasks-data": "file:../tasks-data"
@@ -21,14 +23,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --runInBand --no-cache",
-    "test:debug": "react-scripts inspect test --runInBand --no-cache",
+    "test-debug": "react-scripts inspect test --runInBand --no-cache",
     "sass": "sass template/index.sass template/index.css",
     "sass:watch": "sass --watch template/index.sass template/index.css",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage --watchAll",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",

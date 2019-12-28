@@ -1,10 +1,19 @@
-module.exports = {
-  authenticateUser: require('./authenticate-user'),
-  registerUser: require('./register-user'),
-  retrieveUser: require('./retrieve-user'),
-  listColumns: require('./list-columns'),
-  createTask: require('./create-task'),
-  createColumns: require('./create-columns'),
-  changePosition: require('./change-position'),
-  deleteTask: require('./delete-task')
+import authenticateUser from './authenticate-user'
+import registerUser from './register-user'
+import retrieveUser from './retrieve-user'
+import listColumns from './list-columns'
+import createTask from './create-task'
+import createColumns from './create-columns'
+import changePosition from './change-position'
+import deleteTask from './delete-task'
+
+export default {
+  authenticateUser,
+  registerUser,
+  retrieveUser,
+  listColumns,
+  createTask,
+  createColumns,
+  changePosition,
+  deleteTask
 }

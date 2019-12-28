@@ -1,8 +1,8 @@
-const call = require('../../utils/call')
+import call from '../../utils/call'
 const { validate, errors: { ConflictError } } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
-module.exports = function (name, surname, email, username, password) {
+export default function (name, surname, email, username, password) {
     validate.string(name)
     validate.string.notVoid('name', name)
     validate.string(surname)
@@ -16,12 +16,12 @@ module.exports = function (name, surname, email, username, password) {
     validate.string.notVoid('password', password)
 
     return (async () => {
+debugger
         const res = await call(`${API_URL}/users`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, surname, email, username, password })
         })
-
         if (res.status === 201) return
 
         if (res.status === 409) throw new ConflictError(JSON.parse(res.body).message)

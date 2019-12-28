@@ -1,8 +1,8 @@
-const call = require('../../utils/call')
+import call from '../../utils/call'
 const { validate, errors: { CredentialsError } } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
-module.exports = function (username, password) {
+export default function (username, password) {
     validate.string(username)
     validate.string.notVoid('username', username)
     validate.string(password)

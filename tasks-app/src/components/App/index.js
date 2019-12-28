@@ -4,7 +4,8 @@ import Register from '../Register'
 import Login from '../Login'
 import Board from '../Board'
 import { Route, withRouter } from 'react-router-dom'
-import { authenticateUser, registerUser, retrieveUser, createColumns } from '../../logic'
+import logic from '../../logic'
+const { authenticateUser, registerUser, retrieveUser, createColumns } = logic
 
 export default withRouter(function({ history }) {
   const [name, setName] = useState()

@@ -2,10 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import './index.sass'
 import Column from '../Column'
-import listColumns from '../../logic/list-columns'
-import changePosition from '../../logic/change-position'
-import createColumns from '../../logic/create-columns'
-import deleteTask from '../../logic/delete-task'
+import logic from '../../logic'
+const { listColumns, changePosition, createColumns, deleteTask } = logic
 
 export default function ({ user, onLogout }) {
   const { token } = sessionStorage
