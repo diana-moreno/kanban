@@ -4,7 +4,7 @@ import Card from '../Card'
 import createTask from '../../logic/create-task'
 import listTasks from '../../logic/list-tasks'
 
-export default function({ status, index, tasks, onCreateNewTask }) {
+export default function({ status, index, tasks, onCreateNewTask, onDeleteTask }) {
   const modifier = status.toLowerCase()
   const { token } = sessionStorage
   const [newCard, setNewCard] = useState(false)
@@ -49,7 +49,6 @@ export default function({ status, index, tasks, onCreateNewTask }) {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
-
   return < >
     <li className={`tasks__column tasks__column-${modifier}`}>
       <h2 className='tasks__title'>{status}</h2>
@@ -58,13 +57,27 @@ export default function({ status, index, tasks, onCreateNewTask }) {
           <h3 className='task__title'>+ Add new card</h3>
         </li>
         {newCard && <li className={`task task--${modifier}`}>
-          <input type='text' className={`task__title task__title--${modifier} task__new`} placeholder='Enter a title for this card' onChange={handleCreateTask} ref={wrapperRef}/>
+          <input
+            type='text'
+            className={`task__title task__title--${modifier} task__new`}
+            placeholder='Enter a title for this card'
+            onChange={handleCreateTask}
+            ref={wrapperRef}
+          />
         </li>}
         <Droppable droppableId={status} index={index} >
           {provided => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {tasks && tasks
-                  .map((task, i) => <Card key={task._id} title={task.title} modifier={modifier} index={i} id={task._id} />)
+                  .map((task, i) =>
+                    <Card
+                      status={status}
+                      key={task._id}
+                      title={task.title}
+                      modifier={modifier}
+                      index={i} id={task._id}
+                      onDeleteTask={onDeleteTask}
+                    />)
                 }
                 {provided.placeholder}
               </div>

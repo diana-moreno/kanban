@@ -5,6 +5,7 @@ import Column from '../Column'
 import listColumns from '../../logic/list-columns'
 import changePosition from '../../logic/change-position'
 import createColumns from '../../logic/create-columns'
+import deleteTask from '../../logic/delete-task'
 
 export default function ({ user, onLogout }) {
   const { token } = sessionStorage
@@ -17,7 +18,7 @@ export default function ({ user, onLogout }) {
         await createColumns(token)
         const columns = await listColumns(token)
         setColumns(columns)
-
+        setUpdate(false)
       } catch ({ message }) {
         console.log(message)
     /*    setNotification({ error: true, message })*/
@@ -84,6 +85,15 @@ export default function ({ user, onLogout }) {
     setColumns(columns)
   }
 
+  async function handleDeleteTask(taskId, status) {
+    try {
+      await deleteTask(token, taskId, status)
+      setUpdate(true)
+    } catch(error) {
+      console.log(error.message)
+    }
+  }
+
   return <>
     <header>
       <h1>Tasksboard</h1>
@@ -92,7 +102,14 @@ export default function ({ user, onLogout }) {
       <DragDropContext onDragEnd={onDragEnd}>
         <ul className='tasks'>
           {columns && columns.map((elem, i) =>
-            <Column key={elem.status} status={elem.status} index={i} tasks={elem.tasks} onCreateNewTask={handleCreateNewTask} />
+            <Column
+              key={elem.status}
+              status={elem.status}
+              index={i}
+              tasks={elem.tasks}
+              onCreateNewTask={handleCreateNewTask}
+              onDeleteTask={handleDeleteTask}
+            />
           )}
         </ul>
       </DragDropContext>
