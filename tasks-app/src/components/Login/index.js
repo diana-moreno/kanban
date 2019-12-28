@@ -5,7 +5,7 @@ import Feedback from '../Feedback'
 export default function({ onRegister, onLogin, onBack, error  }) {
   return <>
     <header className='login-title'>
-      <h1>Tasksboard</h1>
+      <h1>Kanban</h1>
     </header>
     <section className='landing'>
       <h2 className='landing__title'>Login to enter</h2>
@@ -23,10 +23,10 @@ export default function({ onRegister, onLogin, onBack, error  }) {
         <button type='submit' className='form__button form__button--login'>
           Login
         </button>
+        <button type='button' className='form__button form__button--register'>
+          <a href="" onClick={event => { event.preventDefault(); onRegister() }}>Create account</a>
+        </button>
       </form>
-      <button className='form__button form__button--register'>
-        <a href="" onClick={event => { event.preventDefault(); onRegister() }}>Create account</a>
-      </button>
       {error && <Feedback message={error} />}
     </section>
   </>

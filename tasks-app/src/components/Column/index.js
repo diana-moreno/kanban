@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Droppable } from 'react-beautiful-dnd';
 import Card from '../Card'
 import createTask from '../../logic/create-task'
-import listTasks from '../../logic/list-tasks'
 
 export default function({ status, index, tasks, onCreateNewTask, onDeleteTask }) {
   const modifier = status.toLowerCase()

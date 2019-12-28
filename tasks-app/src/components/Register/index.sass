@@ -16,42 +16,26 @@ body
   align-items: center
   flex-direction: column
 
-.register-title
+.register__title
   text-align: center
-  padding: 2rem
+  padding: 0
   color: white
-  font-size: 2.5rem
-  letter-spacing: 0.5rem
+  font-size: 1.1rem
 
 .register__form
-  min-width: 30rem
+  width: 17rem
   flex-direction: column
   display: flex
-  font-size: 1.5rem
-
-.form__input
-  font-size: 1.2rem
-  border-radius: 6px
-  margin: 0.5rem
-  padding: 0.5rem 1rem
-  border: none
-  box-shadow: 0em 0em 0.7em -4px #3d3b3b
-
-.form__button
-  font-size: 1.5rem
-  padding: 0.5rem 1rem
-  margin: 0.5rem
-  border: none
-  color: whitesmoke
-  border-radius: 7px
-  box-shadow: 0em 0em 0.7em -4px #3d3b3b
-
-.form__button--register
-  max-width: 29rem
-  min-width: 28rem
-  background: #9E9E9E
+  font-size: 1.1rem
 
 .form__button--register-back
-  max-width: 29rem
-  min-width: 29rem
   background: #d9c381
+
+// Small tablets and large smartphones (landscape view)
+@media only screen and (min-width:576px)
+  .register__form
+    width: 30rem
+
+  .register__title
+    font-size: 1.5rem
+    padding: 2rem

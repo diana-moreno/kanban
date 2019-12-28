@@ -96,7 +96,7 @@ export default function ({ user, onLogout }) {
 
   return <>
     <header>
-      <h1>Tasksboard</h1>
+      <h1>Kanban</h1>
     </header>
     <main>
       <DragDropContext onDragEnd={onDragEnd}>
