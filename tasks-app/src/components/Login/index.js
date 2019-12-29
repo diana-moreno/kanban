@@ -9,12 +9,12 @@ export default function({ onRegister, onLogin, onBack, error  }) {
     </header>
     <section className='landing'>
       <h2 className='landing__title'>Login to enter</h2>
-      <form className='landing__form' onSubmit={function (event) {
-            event.preventDefault()
-
-            const { username: { value: username }, password: { value: password } } = event.target
-
-            onLogin(username, password)
+      <form
+        className='landing__form'
+        onSubmit={function (event) {
+          event.preventDefault()
+          const { username: { value: username }, password: { value: password } } = event.target
+          onLogin(username, password)
         }}>
         <input className='form__input' type="text" name="username"
           placeholder="email"/>

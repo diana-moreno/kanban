@@ -95,6 +95,8 @@ export default function ({ user, onLogout }) {
   return <>
     <header>
       <h1>Kanban</h1>
+      <h2 onClick={onLogout}>Logout</h2>
+      <i onClick={onLogout} className="fas fa-sign-out-alt"></i>
     </header>
     <main>
       <DragDropContext onDragEnd={onDragEnd}>
