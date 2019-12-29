@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import './index.sass'
 import Feedback from '../Feedback'
 import logic from '../../logic'
 const { authenticateUser } = logic
 
-export default withRouter(function({ onBack, error, history  }) {
+export default withRouter(function({ onBack, history  }) {
+  const [error, setError] = useState()
 
   async function onLogin(username, password) {
     try {
       const token = await authenticateUser(username, password)
       sessionStorage.token = token
       history.push('/tasks')
-    } catch (error) {
-      console.error(error)
+    } catch ({ message }) {
+      setError(message)
     }
   }
 
