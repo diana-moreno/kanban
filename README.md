@@ -6,7 +6,7 @@
 
 Kanban is a visual system for managing work and tasks as it moves through a process.
 It's really easy to use because you only have to drag and drop the tasks when them change the status to the correct column.
-You only have to create an account and start working!
+Just create an account and start working!
 
 You can run the deployed project here: https://diana-moreno.github.io/kanban
 
