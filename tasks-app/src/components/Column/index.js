@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Droppable } from 'react-beautiful-dnd';
+import './index.sass'
 import Card from '../Card'
 import logic from '../../logic'
 const { createTask } = logic

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
+import './index.sass'
 
 export default function({ status, title, modifier, index, id, onDeleteTask }) {
   return <>

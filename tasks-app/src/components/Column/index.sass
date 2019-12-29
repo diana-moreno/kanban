@@ -1,0 +1,79 @@
+.tasks__column
+  width: 100%
+  list-style: none
+
+.tasks__task
+  margin: 0
+  padding: 0
+
+.tasks__title
+  margin: 0
+  padding: 2rem
+  color: white
+  text-align: center
+
+.task
+  background-color: whitesmoke
+  list-style: none
+  padding: 0.1rem 0.7rem
+  margin: 1rem
+  border-radius: 14px
+  box-shadow: 0em 0em 0.7em -4px #3d3b3b
+  display: flex
+  align-items: center
+  justify-content: space-between
+  word-break: break-all
+  padding: 0.5rem
+  width: 90%
+
+.task__title
+  margin: 0.5rem 0
+  word-break: break-word
+  margin: 0 1rem 0 1rem
+  line-height: 1.8rem
+
+.task__title--todo
+  color: #ca3737
+
+.task__title--doing
+  color: orange
+
+.task__title--review
+  color: #2196F3
+
+.task__title--done
+  color: #009688
+
+.task__add
+  cursor: pointer
+
+  h3
+    color: white
+
+.task__add--todo
+  background-color: #ca3737
+
+.task__add--doing
+  background-color: orange
+
+.task__add--review
+  background-color: #2196F3
+
+.task__add--done
+  background-color: #009688
+
+.task__new
+  background: none
+  border: none
+  font-family: "Comfortaa", cursive
+  font-size: 1.17em
+  font-weight: 700
+  outline: none
+
+// Small tablets and large smartphones (landscape view)
+@media only screen and (min-width:576px)
+  .tasks__column
+    max-width: 24rem
+
+  .task
+    width: 22rem
