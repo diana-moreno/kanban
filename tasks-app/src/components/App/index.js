@@ -34,6 +34,10 @@ export default withRouter(function({ history }) {
       render={() => <Login onBack={handleGoBack} />}
     />
     <Route
+      exact path='/login'
+      render={() => <Login onBack={handleGoBack} />}
+    />
+    <Route
       path="/register"
       render={() => <Register onBack={handleGoBack} />}
     />
