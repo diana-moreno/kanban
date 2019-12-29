@@ -18,6 +18,8 @@ Backend: Express (Node), Mongoose (MongoDB)
 
 ## Usage
 
+Your need a private files to run in local, if you want to do it, please, contact me.
+
 **Prerequisites:**
 
 - Install Node.js if you haven't yet (https://nodejs.org/es/). Npm is needed but is included installing Node.js.
