@@ -12,15 +12,10 @@ export default function ({ user, onLogout }) {
 
   useEffect(() => {
     (async () => {
-      try {
-        await createColumns(token)
-        const columns = await listColumns(token)
-        setColumns(columns)
-        setUpdate(false)
-      } catch ({ message }) {
-        console.log(message)
-    /*    setNotification({ error: true, message })*/
-      }
+      await createColumns(token)
+      const columns = await listColumns(token)
+      setColumns(columns)
+      setUpdate(false)
     })()
   }, [update])
 

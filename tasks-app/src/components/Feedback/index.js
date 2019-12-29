@@ -3,6 +3,6 @@ import './index.sass'
 
 export default function({ message }) {
   return (
-    <p className="feedback__message feedback__inDetail">{message}</p>
+    <p className="feedback">{message}</p>
   )
 }
