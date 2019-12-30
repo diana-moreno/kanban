@@ -13,6 +13,10 @@ module.exports = new Schema({
     required: true,
     enum: ['TODO', 'DOING', 'REVIEW', 'DONE']
   },
+  index: {
+    type: Number,
+    required: true
+  }
   tasks: [{
     type: ObjectId,
     ref: 'Task'

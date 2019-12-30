@@ -15,10 +15,10 @@ module.exports = function(id) {
       .find({ user: ObjectId(id) }, { __v: 0 })
 
     if (columns.length === 0) {
-      await Column.create({ user: ObjectId(id), status: 'TODO' })
-      await Column.create({ user: ObjectId(id), status: 'DOING' })
-      await Column.create({ user: ObjectId(id), status: 'REVIEW' })
-      await Column.create({ user: ObjectId(id), status: 'DONE' })
+      await Column.create({ user: ObjectId(id), status: 'TODO', index: 0 })
+      await Column.create({ user: ObjectId(id), status: 'DOING', index: 1 })
+      await Column.create({ user: ObjectId(id), status: 'REVIEW', index: 2 })
+      await Column.create({ user: ObjectId(id), status: 'DONE', index: 3 })
     }
   })()
 }

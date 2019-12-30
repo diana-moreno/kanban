@@ -96,16 +96,19 @@ export default function ({ user, onLogout }) {
     <main>
       <DragDropContext onDragEnd={onDragEnd}>
         <ul className='tasks'>
-          {columns && columns.map((elem, i) =>
-            <Column
-              key={elem.status}
-              status={elem.status}
-              index={i}
-              tasks={elem.tasks}
-              onCreateNewTask={handleCreateNewTask}
-              onDeleteTask={handleDeleteTask}
-            />
-          )}
+          {columns && columns
+            .sort((a, b) => a.index - b.index)
+            .map((elem, i) =>
+              <Column
+                key={elem.status}
+                status={elem.status}
+                index={i}
+                tasks={elem.tasks}
+                onCreateNewTask={handleCreateNewTask}
+                onDeleteTask={handleDeleteTask}
+              />
+            )
+        }
         </ul>
       </DragDropContext>
     </main>

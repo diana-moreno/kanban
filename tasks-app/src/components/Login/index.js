@@ -44,7 +44,7 @@ export default withRouter(function({ onBack, history  }) {
           className='form__input'
           type="text"
           name="username"
-          placeholder="email"
+          placeholder="username"
         />
         <input
           className='form__input'
