@@ -16,7 +16,7 @@ module.exports = new Schema({
   index: {
     type: Number,
     required: true
-  }
+  },
   tasks: [{
     type: ObjectId,
     ref: 'Task'

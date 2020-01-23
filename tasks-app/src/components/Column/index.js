@@ -13,15 +13,28 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
 
   useEffect(() => {
     setTitle(null)
+    newCard && wrapperRef.current.focus()
   }, [newCard])
 
   function handleCreateCard() {
     setNewCard(true)
   }
 
-  async function handleCreateTask(event) {
+  function handleCreateTask(event) {
     const title = event.target.value
     setTitle(title)
+  }
+
+  async function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      !title && setNewCard(false)
+      if (title) {
+        const newTask = await createTask(token, status, title)
+        onCreateNewTask(newTask, status)
+      }
+      setNewCard(false)
+      setTitle(null)
+    }
   }
 
   function useOutsideAlerter(ref) {
@@ -64,6 +77,7 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
             placeholder='Enter a title for this card'
             onChange={handleCreateTask}
             ref={wrapperRef}
+            onKeyDown={handleKeyDown}
           />
         </li>}
         <Droppable droppableId={status} index={index} >
