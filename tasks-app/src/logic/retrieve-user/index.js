@@ -12,9 +12,7 @@ export default function(token) {
     })
 
     if (res.status === 200) return res.json()
-
-    if (res.status === 404) throw new NotFoundError(JSON.parse(res.body).message)
-
-    throw new Error(JSON.parse(res.body).message)
+    if (res.status === 404) throw new NotFoundError(res.json())
+    throw new Error(res.json())
   })()
 }

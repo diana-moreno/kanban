@@ -20,8 +20,8 @@ export default function(token, status, title) {
     })
 
     if (res.status === 200) return res.json()
-    if (res.status === 401) throw new CredentialsError(JSON.parse(res.body).message)
-    if (res.status === 404) throw new NotFoundError(JSON.parse(res.body).message)
-    if (res.status === 409) throw new ConflictError(JSON.parse(res.body).message)
+    if (res.status === 401) throw new CredentialsError(res.json())
+    if (res.status === 404) throw new NotFoundError(res.json())
+    if (res.status === 409) throw new ConflictError(res.json())
   })()
 }

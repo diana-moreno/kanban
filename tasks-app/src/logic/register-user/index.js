@@ -20,10 +20,9 @@ export default function(name, surname, email, username, password) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, surname, email, username, password })
     })
+
     if (res.status === 201) return
-
-    if (res.status === 409) throw new ConflictError(JSON.parse(res.body).message)
-
-    throw new Error(JSON.parse(res.body).message)
+    if (res.status === 409) throw new ConflictError(res.json())
+    throw new Error(res.json())
   })()
 }

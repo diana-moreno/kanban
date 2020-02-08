@@ -15,7 +15,7 @@ export default function(username, password) {
     })
 
     if (res.status === 200) return res.json()
-    if (res.status === 401) throw new CredentialsError(JSON.parse(res.body).message)
-    throw new Error(JSON.parse(res.body).message)
+    if (res.status === 401) throw new CredentialsError(res.json())
+    throw new Error(res.json())
   })()
 }
