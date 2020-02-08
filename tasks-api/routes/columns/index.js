@@ -20,14 +20,14 @@ router.get('/', tokenVerifier, jsonBodyParser, (req, res) => {
         const { message } = error
 
         if (error instanceof NotFoundError)
-          return res.status(404).json({ message })
+          return res.status(404).json(message)
         if (error instanceof ConflictError)
-          return res.status(409).json({ message })
+          return res.status(409).json(message)
 
-        res.status(500).json({ message })
+        res.status(500).json(message)
       })
   } catch ({ message }) {
-    res.status(400).json({ message })
+    res.status(400).json(message)
   }
 })
 
@@ -41,14 +41,14 @@ router.put('/', tokenVerifier, jsonBodyParser, (req, res) => {
         const { message } = error
 
         if (error instanceof NotFoundError)
-          return res.status(404).json({ message })
+          return res.status(404).json(message)
         if (error instanceof ConflictError)
-          return res.status(409).json({ message })
+          return res.status(409).json(message)
 
-        res.status(500).json({ message })
+        res.status(500).json(message)
       })
   } catch ({ message }) {
-    res.status(400).json({ message })
+    res.status(400).json(message)
   }
 })
 
@@ -62,14 +62,14 @@ router.post('/', tokenVerifier, (req, res) => {
         const { message } = error
 
         if (error instanceof NotFoundError)
-          return res.status(404).json({ message })
+          return res.status(404).json(message)
         if (error instanceof ConflictError)
-          return res.status(409).json({ message })
+          return res.status(409).json(message)
 
-        res.status(500).json({ message })
+        res.status(500).json(message)
       })
   } catch ({ message }) {
-    res.status(400).json({ message })
+    res.status(400).json(message)
   }
 })
 
