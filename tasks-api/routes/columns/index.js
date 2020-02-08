@@ -15,7 +15,7 @@ router.get('/', tokenVerifier, jsonBodyParser, (req, res) => {
   const { id } = req
 
     listColumns(id)
-      .then(columns => res.json({ columns }))
+      .then(columns => res.json(columns))
       .catch(error => {
         const { message } = error
 

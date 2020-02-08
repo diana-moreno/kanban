@@ -1,4 +1,3 @@
-import call from '../../utils/call'
 const { validate, errors: { ConflictError } } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
@@ -16,7 +15,7 @@ export default function(name, surname, email, username, password) {
   validate.string.notVoid('password', password)
 
   return (async () => {
-    const res = await call(`${API_URL}/users`, {
+    const res = await fetch(`${API_URL}/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, surname, email, username, password })

@@ -34,7 +34,7 @@ router.post('/auth', jsonBodyParser, (req, res) => {
     authenticateUser(username, password)
       .then(id => {
         const token = jwt.sign({ sub: id }, SECRET, { expiresIn: '1d' })
-        res.json({ token })
+        res.json(token)
       })
       .catch(error => {
         const { message } = error
@@ -54,7 +54,7 @@ router.get('/', tokenVerifier, (req, res) => {
     const { id } = req
 
     retrieveUser(id)
-      .then(user => res.json({ user }))
+      .then(user => res.json(user))
       .catch(error => {
         const { message } = error
 

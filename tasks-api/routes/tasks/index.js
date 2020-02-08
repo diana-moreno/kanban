@@ -13,7 +13,7 @@ router.post('/', jsonBodyParser, tokenVerifier, (req, res) => {
   try {
   const { id, body: { status, title } } = req
     createTask(id, status, title)
-      .then((task) => res.json({ task }))
+      .then((task) => res.json(task))
       .catch(error => {
         const { message } = error
 

@@ -1,4 +1,3 @@
-import call from '../../utils/call'
 const { validate, errors: { CredentialsError, NotFoundError, ConflictError } } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
@@ -7,7 +6,7 @@ export default function(token) {
   validate.string.notVoid('token', token)
 
   return (async () => {
-    const res = await call(`${API_URL}/columns`, {
+    const res = await fetch(`${API_URL}/columns`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,

@@ -1,4 +1,3 @@
-import call from '../../utils/call'
 const { validate, errors: { CredentialsError, NotFoundError, ConflictError } } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
@@ -13,7 +12,7 @@ export default function(token, taskId, status) {
   validate.string.notVoid('status', status)
 
   return (async () => {
-    const res = await call(`${API_URL}/tasks/${taskId}`, {
+    const res = await fetch(`${API_URL}/tasks/${taskId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
