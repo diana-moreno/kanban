@@ -13,7 +13,6 @@ export default withRouter(function({ history }) {
 
     (async () => {
       if (token) {
-        debugger
         const { name } = await retrieveUser(token)
         setName(name)
       }

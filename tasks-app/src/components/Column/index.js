@@ -26,7 +26,7 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
   }
 
   async function handleKeyDown(event) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && newCard) {
       !title && setNewCard(false)
       if (title) {
         const newTask = await createTask(token, status, title)
@@ -39,7 +39,7 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
 
   function useOutsideAlerter(ref) {
     async function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (newCard && ref.current && !ref.current.contains(event.target)) {
         !title && setNewCard(false)
         if (title) {
           const newTask = await createTask(token, status, title)
