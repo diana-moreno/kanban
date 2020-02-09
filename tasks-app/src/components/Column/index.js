@@ -3,7 +3,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import './index.sass'
 import Card from '../Card'
 import logic from '../../logic'
-const { createTask } = logic
+const { createTask, deleteTask } = logic
 
 export default function({ status, index, tasks, onCreateNewTask, onDeleteTask }) {
   const modifier = status.toLowerCase()
@@ -60,15 +60,23 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
     });
   }
 
-  const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef);
+  const wrapperRef = useRef(null)
+  useOutsideAlerter(wrapperRef)
+
+  function emptyTrash(event) {
+    event.stopPropagation()
+    tasks.forEach(task => onDeleteTask(task._id, status))
+  }
 
   return < >
     <li className={`tasks__column tasks__column-${modifier}`}>
-      <h2 className='tasks__title'>{status}</h2>
+
+        <h2 className='tasks__title'>{status}</h2>
+
       <ul className='tasks__task'>
         <li className={`task task__add task__add--${modifier}`} onClick={handleCreateCard}>
           <h3 className='task__title'>+ Add new card</h3>
+        { status === 'DONE' && <i className="material-icons" onClick={emptyTrash} >delete_outline</i> }
         </li>
         {newCard && <li className={`task task--${modifier}`}>
           <input
