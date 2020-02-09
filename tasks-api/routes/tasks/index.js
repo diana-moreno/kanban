@@ -13,17 +13,17 @@ router.post('/', jsonBodyParser, tokenVerifier, (req, res) => {
   try {
   const { id, body: { status, title } } = req
     createTask(id, status, title)
-      .then((task) => res.json(task))
+      .then((task) => res.json({task}))
       .catch(error => {
         const { message } = error
 
         if (error instanceof ConflictError)
-          return res.status(409).json(message)
+          return res.status(409).json({message})
 
-        res.status(500).json(message)
+        res.status(500).json({message})
       })
   } catch ({ message }) {
-    res.status(400).json(message)
+    res.status(400).json({message})
   }
 })
 
@@ -37,12 +37,12 @@ router.delete('/:id', jsonBodyParser, tokenVerifier, (req, res) => {
         const { message } = error
 
         if (error instanceof ConflictError)
-          return res.status(409).json(message)
+          return res.status(409).json({message})
 
-        res.status(500).json(message)
+        res.status(500).json({message})
       })
   } catch ({ message }) {
-    res.status(400).json(message)
+    res.status(400).json({message})
   }
 })
 

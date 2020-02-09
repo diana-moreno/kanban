@@ -1,21 +1,23 @@
-const { validate, errors: { CredentialsError } } = require('tasks-util')
+const { validate } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
-export default function(username, password) {
+export default async function(username, password) {
   validate.string(username)
   validate.string.notVoid('username', username)
   validate.string(password)
   validate.string.notVoid('password', password)
 
-  return (async () => {
-    const res = await fetch(`${API_URL}/users/auth`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    })
+  const response = await fetch(`${API_URL}/users/auth`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  })
 
-    if (res.status === 200) return res.json()
-    if (res.status === 401) throw new CredentialsError(res.json())
-    throw new Error(res.json())
-  })()
+  const result = await response.json()
+
+  if (response.ok) {
+    return result.token
+  } else {
+    throw new Error(result.message)
+  }
 }

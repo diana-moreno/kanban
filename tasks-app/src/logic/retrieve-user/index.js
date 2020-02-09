@@ -1,18 +1,20 @@
-const { validate, errors: { NotFoundError } } = require('tasks-util')
+const { validate } = require('tasks-util')
 const API_URL = process.env.REACT_APP_API_URL
 
-export default function(token) {
+export default async function(token) {
   validate.string(token)
   validate.string.notVoid('token', token)
 
-  return (async () => {
-    const res = await fetch(`${API_URL}/users`, {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${token}` }
-    })
+  const response = await fetch(`${API_URL}/users`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` }
+  })
 
-    if (res.status === 200) return res.json()
-    if (res.status === 404) throw new NotFoundError(res.json())
-    throw new Error(res.json())
-  })()
+  const result = await response.json()
+
+  if (response.ok) {
+    return result.user
+  } else {
+    throw new Error(result.message)
+  }
 }
