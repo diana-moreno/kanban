@@ -4,7 +4,7 @@ import Login from '../Login'
 import Board from '../Board'
 import { Route, withRouter, Redirect } from 'react-router-dom'
 import logic from '../../logic'
-const { authenticateUser, registerUser, retrieveUser, createColumns } = logic
+const { retrieveUser } = logic
 
 export default withRouter(function({ history }) {
   const [name, setName] = useState()
@@ -13,6 +13,7 @@ export default withRouter(function({ history }) {
 
     (async () => {
       if (token) {
+        debugger
         const { name } = await retrieveUser(token)
         setName(name)
       }
