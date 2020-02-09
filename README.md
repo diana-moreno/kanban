@@ -18,8 +18,6 @@ Backend: Express (Node), Mongoose (MongoDB)
 
 ## Usage
 
-Your need a private file to run in local, if you want to do it, please, contact me.
-
 **Prerequisites:**
 
 - [Install Node.js](https://nodejs.org/es/) if you haven't yet. Npm is needed but is included with Node.js.
@@ -40,6 +38,12 @@ Your need a private file to run in local, if you want to do it, please, contact 
   ```shell
   npm i
   ```
+
+- There are two configuration files named ".env.example" in the following folders:
+  - tasks-api
+  - tasks-app
+
+  Rename the files from ".env.example" to ".env"
 
 **Running:**
 
