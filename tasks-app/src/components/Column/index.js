@@ -2,14 +2,17 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Droppable } from 'react-beautiful-dnd';
 import './index.sass'
 import Card from '../Card'
+import Modal from '../Modal'
 import logic from '../../logic'
-const { createTask, deleteTask } = logic
+const { createTask } = logic
 
-export default function({ status, index, tasks, onCreateNewTask, onDeleteTask }) {
+export default function({ status, index, tasks, onCreateNewTask, onDeleteTask, onBack }) {
   const modifier = status.toLowerCase()
   const { token } = sessionStorage
   const [newCard, setNewCard] = useState(false)
   const [title, setTitle] = useState(null)
+  const [isTrashMode, setIsTrashMode] = useState(false)
+  const message = tasks.length > 0 ? 'All done notes are going to be deleted, do you want to confirm?' : 'There is nothing to delete.'
 
   useEffect(() => {
     setTitle(null)
@@ -63,20 +66,27 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
   const wrapperRef = useRef(null)
   useOutsideAlerter(wrapperRef)
 
-  function emptyTrash(event) {
-    event.stopPropagation()
-    tasks.forEach(task => onDeleteTask(task._id, status))
+  function toggleEmptyTrashMode(event) {
+    event && event.stopPropagation()
+    !isTrashMode ? setIsTrashMode(true) : setIsTrashMode(false)
   }
 
   return < >
     <li className={`tasks__column tasks__column-${modifier}`}>
-
         <h2 className='tasks__title'>{status}</h2>
-
       <ul className='tasks__task'>
-        <li className={`task task__add task__add--${modifier}`} onClick={handleCreateCard}>
+        <li
+          className={`task task__add task__add--${modifier}`}
+          onClick={handleCreateCard}
+         >
           <h3 className='task__title'>+ Add new card</h3>
-        { status === 'DONE' && <i className="material-icons" onClick={emptyTrash} >delete_outline</i> }
+        { status === 'DONE' &&
+          <i
+            className="material-icons trash"
+            onClick={toggleEmptyTrashMode}
+            title='Empty notes'
+           >delete_outline</i>
+        }
         </li>
         {newCard && <li className={`task task--${modifier}`}>
           <input
@@ -108,5 +118,15 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask })
         </Droppable>
       </ul>
     </li>
+    { isTrashMode &&
+      <Modal
+        onBack={onBack}
+        tasks={tasks}
+        status={status}
+        onDeleteTask={onDeleteTask}
+        toggleEmptyTrashMode={toggleEmptyTrashMode}
+        message={message}
+       />
+    }
   </>
 }

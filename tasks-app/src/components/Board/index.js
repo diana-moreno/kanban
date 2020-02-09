@@ -5,7 +5,7 @@ import Column from '../Column'
 import logic from '../../logic'
 const { listColumns, changePosition, createColumns, deleteTask } = logic
 
-export default function ({ user, onLogout }) {
+export default function ({ user, onLogout, onBack }) {
   const { token } = sessionStorage
   const [columns, setColumns] = useState()
   const [update, setUpdate] = useState(false)
@@ -106,6 +106,7 @@ export default function ({ user, onLogout }) {
                 tasks={elem.tasks}
                 onCreateNewTask={handleCreateNewTask}
                 onDeleteTask={handleDeleteTask}
+                onBack={onBack}
               />
             )
         }

@@ -42,7 +42,7 @@ export default withRouter(function({ history }) {
       render={() => <Register onBack={handleGoBack} />}
     />
     <Route path="/tasks">
-      { token ? <Board user={name} onLogout={handleLogout}/> : <Redirect to="/" /> }
+      { token ? <Board user={name} onLogout={handleLogout} onBack={handleGoBack} /> : <Redirect to="/" /> }
     </Route>
   </>
 })
