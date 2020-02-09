@@ -6,6 +6,7 @@ import createTask from './create-task'
 import createColumns from './create-columns'
 import changePosition from './change-position'
 import deleteTask from './delete-task'
+import editTask from './edit-task'
 
 export default {
   authenticateUser,
@@ -15,5 +16,6 @@ export default {
   createTask,
   createColumns,
   changePosition,
-  deleteTask
+  deleteTask,
+  editTask
 }

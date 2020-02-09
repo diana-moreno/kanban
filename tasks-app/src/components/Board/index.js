@@ -3,7 +3,7 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import './index.sass'
 import Column from '../Column'
 import logic from '../../logic'
-const { listColumns, changePosition, createColumns, deleteTask } = logic
+const { listColumns, changePosition, createColumns, deleteTask, editTask } = logic
 
 export default function ({ user, onLogout, onBack }) {
   const { token } = sessionStorage
@@ -87,6 +87,15 @@ export default function ({ user, onLogout, onBack }) {
     }
   }
 
+  async function handleEditTask(taskId, newTitle) {
+    try {
+      await editTask(token, taskId, newTitle)
+      setUpdate(true)
+    } catch(error) {
+      console.log(error.message)
+    }
+  }
+
   return <>
     <header>
       <h1>Kanban</h1>
@@ -106,6 +115,7 @@ export default function ({ user, onLogout, onBack }) {
                 tasks={elem.tasks}
                 onCreateNewTask={handleCreateNewTask}
                 onDeleteTask={handleDeleteTask}
+                onEditTask={handleEditTask}
                 onBack={onBack}
               />
             )

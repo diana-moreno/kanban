@@ -3,6 +3,7 @@ module.exports = {
   registerUser: require('./users/register-user'),
   retrieveUser: require('./users/retrieve-user'),
   createTask: require('./tasks/create-task'),
+  editTask: require('./tasks/edit-task'),
   deleteTask: require('./tasks/delete-task'),
   listColumns: require('./columns/list-columns'),
   changePosition: require('./columns/change-position'),

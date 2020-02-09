@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { createTask, deleteTask } = require('../../logic')
+const { createTask, deleteTask, editTask } = require('../../logic')
 const jwt = require('jsonwebtoken')
 const { env: { SECRET } } = process
 const tokenVerifier = require('../../helpers/token-verifier')(SECRET)
@@ -32,6 +32,25 @@ router.delete('/:id', jsonBodyParser, tokenVerifier, (req, res) => {
   const { id, params: { id: taskId }, body: { status } } = req
 
     deleteTask(id, taskId, status)
+      .then(() => res.status(201).end())
+      .catch(error => {
+        const { message } = error
+
+        if (error instanceof ConflictError)
+          return res.status(409).json({message})
+
+        res.status(500).json({message})
+      })
+  } catch ({ message }) {
+    res.status(400).json({message})
+  }
+})
+
+router.patch('/:id', jsonBodyParser, tokenVerifier, (req, res) => {
+  try {
+  const { id, params: { id: taskId }, body: { newTitle } } = req
+
+    editTask(id, taskId, newTitle)
       .then(() => res.status(201).end())
       .catch(error => {
         const { message } = error

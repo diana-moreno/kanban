@@ -6,7 +6,7 @@ import Modal from '../Modal'
 import logic from '../../logic'
 const { createTask } = logic
 
-export default function({ status, index, tasks, onCreateNewTask, onDeleteTask, onBack }) {
+export default function({ status, index, tasks, onCreateNewTask, onDeleteTask, onEditTask, onBack }) {
   const modifier = status.toLowerCase()
   const { token } = sessionStorage
   const [newCard, setNewCard] = useState(false)
@@ -110,6 +110,7 @@ export default function({ status, index, tasks, onCreateNewTask, onDeleteTask, o
                       modifier={modifier}
                       index={i} id={task._id}
                       onDeleteTask={onDeleteTask}
+                      onEditTask ={onEditTask}
                     />)
                 }
                 {provided.placeholder}
