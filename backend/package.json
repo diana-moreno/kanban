@@ -1,0 +1,14 @@
+{
+  "name": "kanban-backend",
+  "version": "1.0.0",
+  "description": "Simple kanban backend",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "cd api && node ."
+  },
+  "author": "Diana Moreno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
