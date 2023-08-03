@@ -8,7 +8,7 @@ const tokenVerifier = require('../../helpers/token-verifier')(SECRET);
 const bodyParser = require('body-parser');
 const {
   errors: { NotFoundError, ConflictError, CredentialsError },
-} = require('../../../app-utils');
+} = require('../../app-utils');
 
 const jsonBodyParser = bodyParser.json();
 const router = Router();

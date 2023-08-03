@@ -12,7 +12,7 @@ const {
 const {
   database,
   models: { User },
-} = require('../../../../backend/app-data');
+} = require('../../../../backend/api/app-data');
 const jwt = require('jsonwebtoken');
 
 describe('logic - retrieve user', () => {

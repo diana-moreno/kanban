@@ -9,7 +9,7 @@ const {
 const {
   database,
   models: { User },
-} = require('../../../../backend/app-data');
+} = require('../../../../backend/api/app-data');
 
 describe('logic - register user', () => {
   beforeAll(() => database.connect(TEST_DB_URL));

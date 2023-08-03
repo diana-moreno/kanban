@@ -1,11 +1,11 @@
 const {
   validate,
   errors: { NotFoundError, ConflictError, ContentError },
-} = require('../../../../app-utils');
+} = require('../../../app-utils');
 const {
   ObjectId,
   models: { User, Task, Column },
-} = require('../../../../app-data');
+} = require('../../../app-data');
 
 module.exports = function (id, taskId, status) {
   validate.string(id);
