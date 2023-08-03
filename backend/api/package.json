@@ -23,7 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongod": "^2.0.0",
     "mongoose": "^5.7.11",
-    "data": "file:../data",
+    "app-data": "file:../data",
     "utils": "file:../utils"
   },
   "devDependencies": {
