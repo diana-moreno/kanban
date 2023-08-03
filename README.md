@@ -1,6 +1,6 @@
 # Kanban
 
-![Main](./tasks-doc/img/kanban2.png)
+![Main](./doc/kanban.png)
 
 ## Introduction
 
@@ -20,7 +20,7 @@ Backend: Express (Node), Mongoose (MongoDB)
 
 **Prerequisites:**
 
-- [Install Node.js](https://nodejs.org/es/) if you haven't yet. Npm is needed but is included with Node.js.
+- [Install Node.js](https://nodejs.org/es/) if you haven't yet. Npm is needed but is included with Node.js. (working with node v13.14.0)
 
 - [Install MongoDB](https://docs.mongodb.com/manual/installation/#tutorial-installation).
 
@@ -29,19 +29,22 @@ Backend: Express (Node), Mongoose (MongoDB)
 - Download or [clone the repository](https://github.com/diana-moreno/kanban.git).
 
 - Install the dependencies from the following folders:
-  - tasks-api
-  - tasks-app
-  - tasks-data
-  - tasks-utils
+
+  - frontend
+  - backend/api
+  - backend/data
+  - backend/utils
 
   running the command in each one:
+
   ```shell
   npm i
   ```
 
 - There are two configuration files named ".env.example" in the following folders:
-  - tasks-api
-  - tasks-app
+
+  - frontend
+  - api
 
   Rename the files from ".env.example" to ".env"
 
@@ -49,25 +52,27 @@ Backend: Express (Node), Mongoose (MongoDB)
 
 - Open 3 terminal windows.
 
-1- From the folder you have installed the database MongoDB, enter the folder, and inside of 'bin' run the following command: (This keeps your data base on)
+1- Turn your database on and ensure the data base is still on
 
-➜  bin
-  ```shell
-  mongod --dbpath ../data
-  ```
+```shell
+sudo systemctl start mongod
+sudo systemctl status mongod
+```
 
-2- From 'tasks-api', run the backend with Node:
+2- From 'api', run the backend with Node:
 
-➜  tasks-api
-  ```shell
-  node .
-  ```
+➜ api
 
-3- From 'tasks-app', open the frontend with React:
+```shell
+node .
+```
 
-➜  tasks-app
-  ```shell
-  npm run start
-  ```
+3- From 'frontend', open the frontend with React:
+
+➜ frontend
+
+```shell
+npm run start
+```
 
 Now, the database is on, the server is running and the frontend connected to it, you can start playing in the website!
