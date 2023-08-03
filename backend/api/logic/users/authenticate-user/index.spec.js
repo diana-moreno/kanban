@@ -11,7 +11,7 @@ const {
 const {
   database,
   models: { User },
-} = require('data');
+} = require('app-data');
 
 describe('logic - authenticate user', () => {
   before(() => database.connect(DB_URL_TEST));

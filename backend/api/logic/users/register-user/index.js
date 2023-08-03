@@ -4,7 +4,7 @@ const {
 } = require('../../../../utils');
 const {
   models: { User },
-} = require('data');
+} = require('app-data');
 
 module.exports = function (name, surname, email, username, password) {
   validate.string(name);

@@ -5,7 +5,7 @@ const {
 const {
   ObjectId,
   models: { User },
-} = require('data');
+} = require('app-data');
 
 module.exports = function (id) {
   validate.string(id);
