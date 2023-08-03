@@ -1,10 +1,10 @@
 const {
   validate,
   errors: { ConflictError },
-} = require('../../../../utils');
+} = require('../../../../app-utils');
 const {
   models: { User },
-} = require('app-data');
+} = require('../../../../app-data');
 
 module.exports = function (name, surname, email, username, password) {
   validate.string(name);

@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
 const {
   validators: { isEmail },
-} = require('../../utils');
+} = require('../../app-utils');
 
 module.exports = new Schema({
   name: {

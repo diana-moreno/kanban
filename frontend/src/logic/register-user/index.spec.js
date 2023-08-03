@@ -5,11 +5,11 @@ const registerUser = require('.');
 const { random } = Math;
 const {
   errors: { ContentError },
-} = require('utils');
+} = require('../../../../backend/app-utils');
 const {
   database,
   models: { User },
-} = require('data');
+} = require('../../../../backend/app-data');
 
 describe('logic - register user', () => {
   beforeAll(() => database.connect(TEST_DB_URL));

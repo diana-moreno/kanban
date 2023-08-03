@@ -1,11 +1,11 @@
 const {
   validate,
   errors: { NotFoundError },
-} = require('../../../../utils');
+} = require('../../../../app-utils');
 const {
   ObjectId,
   models: { User, Task, Column },
-} = require('app-data');
+} = require('../../../../app-data');
 
 module.exports = function (id, status, title) {
   validate.string(id);

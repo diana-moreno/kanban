@@ -1,4 +1,4 @@
-const { validate } = require('utils');
+const { validate } = require('../../app-utils');
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default async function (token, column) {

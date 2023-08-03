@@ -8,7 +8,7 @@ const {
   env: { PORT = port || 8080, DB_URL },
 } = process;
 const cors = require('cors');
-const { database } = require('app-data');
+const { database } = require('../app-data');
 const { users, tasks, columns } = require('./routes');
 
 const api = express();

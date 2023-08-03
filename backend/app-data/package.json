@@ -1,5 +1,5 @@
 {
-  "name": "data",
+  "name": "tasks-data",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.7.12",
-    "utils": "file:../utils"
+    "mongoose": "^5.7.12"
   }
 }

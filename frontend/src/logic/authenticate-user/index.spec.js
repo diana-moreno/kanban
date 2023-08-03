@@ -5,11 +5,11 @@ const authenticateUser = require('.');
 const { random } = Math;
 const {
   errors: { ContentError, CredentialsError },
-} = require('utils');
+} = require('../../../../backend/app-utils');
 const {
   database,
   models: { User },
-} = require('data');
+} = require('../../../../backend/app-data');
 
 describe('logic - authenticate user', () => {
   beforeAll(() => database.connect(TEST_DB_URL));

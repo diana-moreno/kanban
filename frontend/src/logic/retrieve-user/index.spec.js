@@ -8,11 +8,11 @@ const retrieveUser = require('.');
 const { random } = Math;
 const {
   errors: { NotFoundError },
-} = require('utils');
+} = require('../../../../backend/app-utils');
 const {
   database,
   models: { User },
-} = require('data');
+} = require('../../../../backend/app-data');
 const jwt = require('jsonwebtoken');
 
 describe('logic - retrieve user', () => {

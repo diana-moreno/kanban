@@ -1,10 +1,10 @@
 const {
   validate,
   errors: { CredentialsError },
-} = require('../../../../utils');
+} = require('../../../../app-utils');
 const {
   models: { User },
-} = require('app-data');
+} = require('../../../../app-data');
 
 module.exports = function (username, password) {
   validate.string(username);
