@@ -5,7 +5,7 @@ const { name, version } = require('./package.json');
 const jwt = require('jsonwebtoken');
 const {
   argv: [, , port],
-  env: { PORT = port || 8080, TEST_DB_URL },
+  env: { PORT = port || 8080, DB_URL },
 } = process;
 const cors = require('cors');
 const { database } = require('data');
@@ -19,7 +19,7 @@ api.use('/tasks', tasks);
 api.use('/columns', columns);
 
 database
-  .connect(TEST_DB_URL)
+  .connect(DB_URL)
   .then(() =>
     api.listen(PORT, () =>
       console.log(`${name} ${version} up and running on port ${PORT}`)
