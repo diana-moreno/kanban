@@ -1,3 +1,3 @@
-module.exports = function(target, type) {
-    return typeof target === type
+export default function (target, type) {
+  return typeof target === type;
 }

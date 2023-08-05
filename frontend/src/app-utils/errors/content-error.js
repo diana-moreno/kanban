@@ -1,9 +1,9 @@
-module.exports = class ContentError extends Error {
-    constructor(message) {
-        super(message)
+export default class ContentError extends Error {
+  constructor(message) {
+    super(message);
 
-        Error.captureStackTrace(this, ContentError)
+    Error.captureStackTrace(this, ContentError);
 
-        this.name = ContentError.name
-    }
+    this.name = ContentError.name;
+  }
 }

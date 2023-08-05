@@ -1,3 +1,1 @@
-module.exports = {
-    arrayRandom: require('./array-random')
-}
+export const arrayRandom = require('./array-random').default;

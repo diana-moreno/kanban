@@ -1,6 +1,4 @@
-module.exports = {
-    ConflictError: require('./conflict-error'),
-    ContentError: require('./content-error'),
-    CredentialsError: require('./credentials-error'),
-    NotFoundError: require('./not-found-error')
-}
+export const ConflictError = require('./conflict-error').default;
+export const ContentError = require('./content-error').default;
+export const CredentialsError = require('./credentials-error').default;
+export const NotFoundError = require('./not-found-error').default;
